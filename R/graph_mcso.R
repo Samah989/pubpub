@@ -4,7 +4,6 @@
 #' @export
 graph_mcso <- function(item, sort="alpha", custom=NULL) {
   sorted <- data.frame(table(item))
-  sort="alpha"
   if(sort=="descending") {
     sorted <- sorted[order(sorted$Freq),]
     sorder <- sorted$item
