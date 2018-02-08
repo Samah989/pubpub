@@ -7,5 +7,5 @@
 graph_mcso(item, sort = "alpha")
 }
 \description{
-This function creates a horizontal bar graph gor a multiple choice, single option question
+This function creates a horizontal bar graph for a multiple choice, single option question
 }
