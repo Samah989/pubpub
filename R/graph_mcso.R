@@ -1,8 +1,6 @@
 #' Graphs a multiple choice, single option question
 #' 
 #' This function creates a horizontal bar graph for a multiple choice, single option question
-#' @param item The vector or column from the dataset with the options
-#' graph_mcso()
 graph_mcso <- function(item, sort="alpha") {
   data <- data.frame(item)
   sorting <- data.frame(table(data))
