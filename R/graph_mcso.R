@@ -2,8 +2,11 @@
 #' 
 #' This function creates a horizontal bar graph for a multiple choice, single option question
 #' @export
-graph_mcso <- function(item, sort="alpha", custom=NULL) {
+graph_mcso <- function(item, sort="alpha", custom=NULL, rm=NULL) {
   sorted <- data.frame(table(item))
+  for(i in 1:length(rm)) {
+    sorted <- sorted[which(sorted$item!=rm[i])]  
+  }
   if(sort=="descending") {
     sorted <- sorted[order(sorted$Freq),]
     sorder <- sorted$item
@@ -15,7 +18,7 @@ graph_mcso <- function(item, sort="alpha", custom=NULL) {
     sorted <- sorted[rev(1:nrow(sorted)),]
     sorder <- sorted$item
   } else if(sort=="custom") {
-    sorder <- custom
+    sorder <- custom[rev(1:length(custom))]
   } else {
     stop("sort parameter must equal \"alpha\", \"ascending\", or \"descending\"")
   }
