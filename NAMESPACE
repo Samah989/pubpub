@@ -2,6 +2,7 @@
 
 export(create_mcmodummies)
 export(get_mcmoopts)
+export(get_mcmopct)
 export(get_mcsopct)
 export(get_textresp)
 export(graph_mcmo)
