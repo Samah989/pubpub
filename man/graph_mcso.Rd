@@ -6,6 +6,10 @@
 \usage{
 graph_mcso(item, sort = "alpha")
 }
+\arguments{
+\item{item}{The vector or column from the dataset with the options
+graph_mcso()}
+}
 \description{
 This function creates a horizontal bar graph for a multiple choice, single option question
 }
