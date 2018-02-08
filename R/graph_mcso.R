@@ -1,6 +1,7 @@
 #' Graphs a multiple choice, single option question
 #' 
 #' This function creates a horizontal bar graph for a multiple choice, single option question
+#' @export
 graph_mcso <- function(item, sort="alpha") {
   sorted <- data.frame(table(item))
   sort="alpha"

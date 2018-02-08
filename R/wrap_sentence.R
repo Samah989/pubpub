@@ -1,6 +1,7 @@
 #' A string wrapping function
 #' 
 #' This function takes a space-delimited sentence and inserts newlines to wrap the sentence. 
+#' @export
 wrap_sentence <- function(string, width=30) {
   words <- unlist(strsplit(string, " "))
   fullsentence <- ""
