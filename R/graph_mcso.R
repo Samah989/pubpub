@@ -17,7 +17,7 @@ graph_mcso <- function(item, sort="alpha", custom=NULL) {
   } else if(sort=="custom") {
     sorder <- custom[rev(1:length(custom))]
   } else {
-    stop("sort parameter must equal \"alpha\", \"ascending\", or \"descending\"")
+    stop("sort parameter must equal \"alpha\", \"ascending\", \"descending\", or \"custom\"")
   }
   sorted$item <- factor(sorted$item, ordered=T, levels=sorder)
   return(ggplot(sorted, aes(x=item, y=Freq)) +
