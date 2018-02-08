@@ -2,21 +2,21 @@
 #' 
 #' This function creates a horizontal bar graph for a multiple choice, single option question
 graph_mcso <- function(item, sort="alpha") {
-  data <- data.frame(item)
-  sorting <- data.frame(table(data))
+  sorted <- data.frame(table(item))
+  sort="alpha"
   if(sort=="descending") {
-    sorting <- sorting[order(sorting$Freq),]
+    sorted <- sorted[order(sorted$Freq),]
   } else if(sort=="ascending") {
-    sorting <- sorting[order(-sorting$Freq),]
+    sorted <- sorted[order(-sorted$Freq),]
   } else if(sort=="alpha") {
-    sorting <- sorting[order(sorting$Var1),]
-    sorting <- sorting[rev(1:nrow(sorting)),]
+    sorted <- sorted[order(sorted$Var1),]
+    sorted <- sorted[rev(1:nrow(sorted)),]
   } else {
     stop("sort parameter must equal \"alpha\", \"ascending\", or \"descending\"")
   }
-  data$q2 <- factor(data$q2, ordered=T, levels=sorting[,1])
-  return(ggplot(data, aes(x=item)) +
-    geom_bar(stat="count") +
+  sorted$Var1 <- factor(sorted$Var1, ordered=T, levels=sorted$Var1)
+  return(ggplot(sorted, aes(x=Var1, y=Freq)) +
+    geom_bar(stat="identity") +
     xlab("") +
     ylab("Count") +
     coord_flip() +
