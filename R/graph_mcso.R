@@ -9,16 +9,16 @@ graph_mcso <- function(item, sort="alpha") {
   } else if(sort=="ascending") {
     sorted <- sorted[order(-sorted$Freq),]
   } else if(sort=="alpha") {
-    sorted <- sorted[order(sorted$Var1),]
+    sorted <- sorted[order(sorted$item),]
     sorted <- sorted[rev(1:nrow(sorted)),]
   } else {
     stop("sort parameter must equal \"alpha\", \"ascending\", or \"descending\"")
   }
-  sorted$Var1 <- factor(sorted$Var1, ordered=T, levels=sorted$Var1)
-  return(ggplot(sorted, aes(x=Var1, y=Freq)) +
-    geom_bar(stat="identity") +
-    xlab("") +
-    ylab("Count") +
-    coord_flip() +
-    theme)
+  sorted$item <- factor(sorted$item, ordered=T, levels=sorted$item)
+  return(ggplot(sorted, aes(x=item, y=Freq)) +
+           geom_bar(stat="identity") +
+           xlab("") +
+           ylab("Count") +
+           coord_flip() +
+           theme)
 }
