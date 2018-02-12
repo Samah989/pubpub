@@ -33,5 +33,6 @@ graph_matrix <- function(items, levels, labels, sort="entry", ...) {
            ylab("Percent") +
            coord_flip() + 
            scale_fill_brewer(name="Response", ...) +
-           theme)
+           theme(panel.background=element_blank(),
+                 axis.line=element_line(colour="black")))
 }

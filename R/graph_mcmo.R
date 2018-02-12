@@ -44,6 +44,7 @@ graph_mcmo <- function(item, sort="alpha", custom=NULL, stat="count", ...) {
   }
   plot <- plot +
     coord_flip() +
-    theme
+    theme(panel.background=element_blank(),
+          axis.line=element_line(colour="black"))
   return(plot)
 }
