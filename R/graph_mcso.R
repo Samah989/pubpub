@@ -2,7 +2,7 @@
 #' 
 #' This function creates a horizontal bar graph for a multiple choice, single option question
 #' @export
-graph_mcso <- function(item, sort="alpha", custom=NULL, ...) {
+graph_mcso <- function(item, sort="alpha", custom=NULL, fill="dodgerblue4", ...) {
   sorted <- data.frame(table(item))
   sorted$item <- as.character(sorted$item)
   if(sort=="descending") {
@@ -24,7 +24,7 @@ graph_mcso <- function(item, sort="alpha", custom=NULL, ...) {
   sorder <- wrap_strings(sorder)
   sorted$item <- factor(sorted$item, ordered=T, levels=sorder)
   return(ggplot(sorted, aes(x=item, y=Freq)) +
-           geom_bar(stat="identity") +
+           geom_bar(stat="identity", fill=fill) +
            xlab("") +
            ylab("Count") +
            coord_flip() +

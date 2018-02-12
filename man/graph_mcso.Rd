@@ -4,7 +4,7 @@
 \alias{graph_mcso}
 \title{Graphs a multiple choice, single option question}
 \usage{
-graph_mcso(item, sort = "alpha", custom = NULL, ...)
+graph_mcso(item, sort = "alpha", custom = NULL, fill = "dodgerblue4", ...)
 }
 \description{
 This function creates a horizontal bar graph for a multiple choice, single option question
