@@ -32,6 +32,6 @@ graph_matrix <- function(items, levels, labels, sort="entry", ...) {
            xlab("") +
            ylab("Percent") +
            coord_flip() + 
-           theme +
-           scale_fill_brewer(name="Response", ...))
+           scale_fill_brewer(name="Response", ...) +
+           theme)
 }
