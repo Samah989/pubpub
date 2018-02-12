@@ -28,5 +28,6 @@ graph_mcso <- function(item, sort="alpha", custom=NULL, ...) {
            xlab("") +
            ylab("Count") +
            coord_flip() +
-           theme)
+           theme(panel.background=element_blank(),
+                 axis.line=element_line(colour="black")))
 }
