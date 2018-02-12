@@ -2,7 +2,7 @@
 #' 
 #' This function creates a horizontal bar graph for a multiple choice, multiple option question
 #' @export
-graph_mcmo <- function(item, sort="alpha", custom=NULL, stat="count", ...) {
+graph_mcmo <- function(item, sort="alpha", custom=NULL, stat="count", fill="seagreen", ...) {
   dummies <- create_mcmodummies(item, ...)
   names <- wrap_strings(names(dummies))
   if(stat=="count") {
@@ -33,7 +33,7 @@ graph_mcmo <- function(item, sort="alpha", custom=NULL, stat="count", ...) {
   }
   allstats$item <- factor(allstats$item, ordered=T, levels=sorder)
   plot <- ggplot(allstats, aes(x=item, y=stat)) +
-    geom_bar(stat="identity") +
+    geom_bar(stat="identity", fill=fill) +
     xlab("")
   if(stat=="count") {
     plot <- plot +

@@ -2,7 +2,7 @@
 #' 
 #' This function creates a horizontal bar graph for a multiple choice, single option question
 #' @export
-graph_matrix <- function(items, levels, labels, sort="entry", ...) {
+graph_matrix <- function(items, levels, labels, sort="entry", palette="ordered", ...) {
   levels <- rev(levels)
   items <- lapply(items, function(x) factor(x, levels=levels))
   sorted <- data.frame(matrix(NA, nrow=1, ncol=length(levels)))
@@ -27,12 +27,19 @@ graph_matrix <- function(items, levels, labels, sort="entry", ...) {
   coldata <- melt(sorted, id="Item")
   coldata$Item <- wrap_strings(as.character(coldata$Item))
   coldata$Item <- factor(coldata$Item, levels=wrap_strings(sorder), ordered=T)
+  if(palette=="ordered") {
+    palette <- "YlOrRd"
+  } else if(palette=="unordered") {
+    palette <- "Pastel1"
+  } else {
+    stop("palette parameter must equal \"ordered\" or \"unordered\"")
+  }
   return(ggplot(coldata, aes(x=factor(Item), y=value, fill=factor(variable))) + 
            geom_bar(stat="identity") +
            xlab("") +
            ylab("Percent") +
            coord_flip() + 
-           scale_fill_brewer(name="Response", ...) +
+           scale_fill_brewer(name="Response", palette=palette) +
            theme(panel.background=element_blank(),
                  axis.line=element_line(colour="black")))
 }

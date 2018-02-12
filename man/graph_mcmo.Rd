@@ -4,7 +4,8 @@
 \alias{graph_mcmo}
 \title{Graphs a multiple choice, multiple option question}
 \usage{
-graph_mcmo(item, sort = "alpha", custom = NULL, stat = "count", ...)
+graph_mcmo(item, sort = "alpha", custom = NULL, stat = "count",
+  fill = "seagreen", ...)
 }
 \description{
 This function creates a horizontal bar graph for a multiple choice, multiple option question

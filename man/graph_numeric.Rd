@@ -5,7 +5,7 @@
 \title{Graphs a numeric question}
 \usage{
 graph_numeric(item, unit, xmin = 0, xmax = max(item) + binwidth,
-  binwidth = 1)
+  binwidth = 1, fill = "darkmagenta")
 }
 \description{
 This function creates a histogram for a numeric question

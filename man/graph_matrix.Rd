@@ -4,7 +4,8 @@
 \alias{graph_matrix}
 \title{Graphs a multiple choice, single option question}
 \usage{
-graph_matrix(items, levels, labels, sort = "entry", ...)
+graph_matrix(items, levels, labels, sort = "entry", palette = "ordered",
+  ...)
 }
 \description{
 This function creates a horizontal bar graph for a multiple choice, single option question
