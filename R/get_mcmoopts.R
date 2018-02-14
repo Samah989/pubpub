@@ -5,6 +5,7 @@
 get_mcmoopts <- function(item, delim=",", rm=c()) {
   l <- levels(factor(item))
   l <- unique(unlist(strsplit(l, delim)))
+  rm <- c("", rm)
   l <- setdiff(l, rm)
   return(l)
 }
