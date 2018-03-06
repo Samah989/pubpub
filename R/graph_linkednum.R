@@ -28,11 +28,22 @@ graph_linkednum <- function(items, labels, sort="entry", totalcheck=NA,
   if(central=="mean") {
     sumtable$central <- sumtable$mean
     type <- "Mean"
+  } else if(central=="median") {
+    sumtable$central <- sumtable$median
+    type <- "Median"
   }
   if(spread=="sd1") {
     sumtable$lo <- sumtable$mean-sumtable$sd
     sumtable$lo[sumtable$lo<0] <- 0
     sumtable$hi <- sumtable$mean+sumtable$sd
+  } else if(spread=="sd2") {
+    sumtable$lo <- sumtable$mean-(1.96*sumtable$sd)
+    sumtable$lo[sumtable$lo<0] <- 0
+    sumtable$hi <- sumtable$mean+(1.96*sumtable$sd)
+  } else if(spread=="minmax") {
+    sumtable$lo <- sumtable$min
+    sumtable$lo[sumtable$lo<0] <- 0
+    sumtable$hi <- sumtable$max
   }
   if(sort=="entry") {
     sumtable$item <- factor(sumtable$item, ordered=T, levels=rev(labels))
