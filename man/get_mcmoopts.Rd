@@ -4,7 +4,7 @@
 \alias{get_mcmoopts}
 \title{Gets options for multiple choice, multiple option question}
 \usage{
-get_mcmoopts(item, delim = ",", rm = c())
+get_mcmoopts(item, delim = ",", omit = c())
 }
 \description{
 This function gets all options for a multiple choice, multiple option question

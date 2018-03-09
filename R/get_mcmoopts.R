@@ -2,10 +2,10 @@
 #' 
 #' This function gets all options for a multiple choice, multiple option question
 #' @export
-get_mcmoopts <- function(item, delim=",", rm=c()) {
+get_mcmoopts <- function(item, delim=",", omit=c()) {
   l <- levels(factor(item))
   l <- unique(unlist(strsplit(l, delim)))
-  rm <- c("", rm)
-  l <- setdiff(l, rm)
+  omit <- c("", omit)
+  l <- setdiff(l, omit)
   return(l)
 }

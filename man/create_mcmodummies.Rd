@@ -2,10 +2,24 @@
 % Please edit documentation in R/create_mcmodummies.R
 \name{create_mcmodummies}
 \alias{create_mcmodummies}
-\title{Creates dummy variables for multiple choice, multiple option question}
+\title{Creates MCMO dummy variables}
 \usage{
 create_mcmodummies(item, ...)
 }
+\arguments{
+\item{item}{Data vector from MCMO question.}
+
+\item{...}{Other options as in \code{get_mcmoopts()}}
+}
 \description{
-This function creates dummy variables for a multiple choice, multiple option question
+This function creates dummy variables for a multiple choice, multiple option
+question. Suggested data check: Run \code{get_mcmoopts()} first to see what
+survey choices are being found.
+}
+\examples{
+# Print dummy variables of MCMO question "Q3" in "survey" data.frame object
+create_mcmodummies(survey$Q3)
+# Omit "Computer science" option
+create_mcmodummies(survey$Q3, omit="Computer science")
+
 }
