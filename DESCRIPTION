@@ -1,10 +1,19 @@
 Package: pubpub
-Title: What the Package Does (one line, title case)
-Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Title: A Package for Simplifying Data Reporting
+Version: 0.1.0
+Authors@R: person("Richard", "Blissett", email = "richard.blissett@shu.edu", role = c("aut", "cre"))
+Maintainer: Richard Blissett <richard.blissett@shu.edu>
+URL: https://github.com/rblissett/pubpub
+BugReports: https://github.com/rblissett/pubpub
+Description: This package wraps together various existing R 
+	functions - including graphing, table formatting, and markup - for
+	easy use by individuals who are primarily concerned with developing
+	readable reports on data and typical data analyses.
 Depends: R (>= 3.4.3)
-License: What license is it under?
-Encoding: UTF-8
-LazyData: true
+License: MIT + file LICENSE
+LazyData: True
+Imports: ggplot2,
+	hashmap,
+	reshape
 RoxygenNote: 6.0.1
+VignetteBuilder: knitr
