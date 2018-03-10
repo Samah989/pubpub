@@ -2,10 +2,23 @@
 % Please edit documentation in R/get_matchvars.R
 \name{get_matchvars}
 \alias{get_matchvars}
-\title{Gets list of variables with a certain substring in them}
+\title{Returns list of variables matching matters}
 \usage{
 get_matchvars(d, pattern)
 }
+\arguments{
+\item{d}{The full data frame}
+
+\item{pattern}{The pattern to match in the variable name}
+}
 \description{
-Searches through all variable names and returns all that match a search term
+Searches through all variable names and returns all that match a search
+term, using regular expressions.
+}
+\examples{
+# Get all variable names including "Q6_"
+get_matchvars(survey, "Q6_")
+# Data frame with only Q6 variables
+survey[get_matchvars(survey, "Q6_")]
+
 }
