@@ -2,11 +2,38 @@
 % Please edit documentation in R/graph_matrix.R
 \name{graph_matrix}
 \alias{graph_matrix}
-\title{Graphs a multiple choice, single option question}
+\title{Graphs a set of matrix questions}
 \usage{
 graph_matrix(items, levels, labels, sort = "entry", palette = "ordered",
   ...)
 }
+\arguments{
+\item{items}{Data frame with only items to be graphed}
+
+\item{levels}{Vector with the order (low to high) of ordinal options, must
+be specified even if options are not ordinal}
+
+\item{labels}{Vector, in order of \code{items} columns, with names of items}
+
+\item{sort}{The order in which items should be displayed upon graphing. 
+Options include: \code{entry} - options are in the order of the 
+original columns, \code{alpha} - options are in alphabetical order, or one
+of the levels from \code{levels}, in which case the graph will be sorted
+descending order by that level}
+
+\item{palette}{Specifies the if the levels are ordered or not, if 
+"ordered," palette is "YlOrRd", if "unordered," palette is "Pastel1" - see
+<http://ggplot2.tidyverse.org/reference/scale_brewer.html> for more detail}
+}
 \description{
-This function creates a horizontal bar graph for a multiple choice, single option question
+Graphs a horizontal stacked bar plot to display information from a series
+of questions that use the same options (e.g., a matrix)
+}
+\examples{
+# Graph agree/disagree questions
+graph_matrix(survey[get_matchvars(survey, "Opinion_")],
+                    levels=c("Disagree", "Neutral", "Agree"),
+                    labels=c("Apples", "Bananas", "Coconuts"),
+                    sort="Agree")
+
 }

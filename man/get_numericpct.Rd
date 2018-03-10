@@ -6,6 +6,25 @@
 \usage{
 get_numericpct(item, min, max = min, digits = 2)
 }
+\arguments{
+\item{item}{Data vector from numeric question}
+
+\item{min}{The minimum value (inclusive) from the search range}
+
+\item{max}{The maximum value (inclusive) from the search range, defaults to
+the minimum if not included}
+
+\item{digits}{The number of digits after the decimal for rounding the
+percent}
+}
 \description{
-This function gets the percent of values in a range, inclusive
+This function gets the percent of values in a range, inclusive. Defaults to
+the total percent matching a specific value if no maximum value is given.
+}
+\examples{
+# Gets the percent of people with exactly three dogs
+get_numericpct(survey$numdogs, min=3)
+# Gets the percent of people aged 18 to 25, inclusive
+get_numericpct(survey$age, min=18, max=25)
+
 }

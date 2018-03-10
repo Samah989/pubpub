@@ -1,6 +1,21 @@
-#' Graphs a multiple choice, single option question
+#' Graphs an MCSO question
 #' 
-#' This function creates a horizontal bar graph for a multiple choice, single option question
+#' This function creates a horizontal bar graph for an MCSO option question
+#' 
+#' @param item Data vector from MCSO question
+#' @param sort Specifies the order of the items in the graph. Options include:
+#' \code{descending} - in descending order by frequency, \code{ascending} - in
+#' ascending order by frequency, \code{alpha} - in alphabetical order,
+#' \code{custom} - in some custom order specified in the \code{custom} parameter
+#' @param custom If \code{sort="custom"}, the order of the options to be graphed
+#' @param fill Specifies the color of the bars in the graph, see 
+#' <http://sape.inf.usi.ch/quick-reference/ggplot2/colour> for color
+#' references
+#' 
+#' @examples 
+#' # Graphs an MCSO question
+#' graph_mcso(survey$Q4, sort="custom", custom=c("Grains", "Fruits", "Vegetables"))
+#' 
 #' @export
 graph_mcso <- function(item, sort="alpha", custom=NULL, fill="dodgerblue4", ...) {
   sorted <- data.frame(table(item))

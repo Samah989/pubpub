@@ -7,6 +7,40 @@
 graph_linkednum(items, labels, sort = "entry", totalcheck = NA,
   central = "mean", spread = "sd1", fill = "tomato1")
 }
+\arguments{
+\item{items}{Data frame with only items to be graphed}
+
+\item{labels}{Vector, in order of \code{items} columns, with names of items}
+
+\item{sort}{The order in which items should be displayed upon graphing. 
+Options include: \code{entry} - options are in the order of the 
+original columns, and \code{descending} - options are in descending order
+by the chosen \code{central} statistic}
+
+\item{totalcheck}{Includes a value for if the user wants to omit rows for
+which the constituent items do not correctly add up to some total value}
+
+\item{central}{For horizontal bar graphs, specifies the statistic used for
+the height of the bars. Options include: \code{mean} for the arithmetic
+mean, and \code{median} for the median}
+
+\item{spread}{For horizontal bar graphs, specifies the statistic used for
+the endpoints of the error bars. Options include: \code{sd1} for a width
+of one standard deviation, \code{sd2} for a width of 1.96 standard
+deviations, and \code{minmax} for a width using the range of the data}
+
+\item{fill}{Specifies the color of the bars in the graph, see 
+<http://sape.inf.usi.ch/quick-reference/ggplot2/colour> for color
+references}
+}
 \description{
-This function creates bar plots with error bars for linked numeric questions
+Creates plots for numeric questions where their distributions are meant to
+be comparable to each other (e.g., where they are supposed to sum to 100)
+}
+\examples{
+# Graph all time use questions
+graph_linkednum(survey[get_matchvars(survey, "TimeUse_")], 
+                       labels=c("Talking", "Eating", "Drinking"),
+                       totalcheck=100)
+
 }

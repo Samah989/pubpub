@@ -2,10 +2,23 @@
 % Please edit documentation in R/get_textresp.R
 \name{get_textresp}
 \alias{get_textresp}
-\title{Returns text responses to a text-based question}
+\title{Returns text responses to an open response question}
 \usage{
 get_textresp(item, rm.nl = F, empty = NA)
 }
+\arguments{
+\item{item}{Data vector from open responses question}
+
+\item{rm.nl}{Option for stripping responses of newline characters}
+
+\item{empty}{Specifies what an empty response looks like}
+}
 \description{
-This function returns, in a vector, all of the text responses from a text-based question
+This function returns, in a vector, all of the text responses from a 
+open responses, text-based question.
+}
+\examples{
+# Returns all "other" responses from question 6
+get_textresp(survey$Q6_other)
+
 }

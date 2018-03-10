@@ -1,6 +1,23 @@
-#' Graphs a multiple choice, multiple option question
+#' Graphs an MCMO question
 #' 
-#' This function creates a horizontal bar graph for a multiple choice, multiple option question
+#' This function creates a horizontal bar graph for an MCMO question
+#' 
+#' @param item Data vector from MCMO question
+#' @param sort Specifies the order of the items in the graph. Options include:
+#' \code{descending} - in descending order by frequency, \code{ascending} - in
+#' ascending order by frequency, \code{alpha} - in alphabetical order,
+#' \code{custom} - in some custom order specified in the \code{custom} parameter
+#' @param custom If \code{sort="custom"}, the order of the options to be graphed
+#' @param stat The statistic for the frequency, either \code{count} or
+#' \code{percent}
+#' @param fill Specifies the color of the bars in the graph, see 
+#' <http://sape.inf.usi.ch/quick-reference/ggplot2/colour> for color
+#' references
+#' 
+#' @examples 
+#' # Graphs an MCMO question
+#' graph_mcmo(survey$Q3, sort="custom", custom=c("Grains", "Fruits", "Vegetables"))
+#' 
 #' @export
 graph_mcmo <- function(item, sort="alpha", custom=NULL, stat="count", fill="seagreen", ...) {
   dummies <- create_mcmodummies(item, ...)

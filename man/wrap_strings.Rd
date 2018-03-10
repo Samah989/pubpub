@@ -6,6 +6,9 @@
 \usage{
 wrap_strings(vector_of_strings, ...)
 }
+\arguments{
+\item{vector_of_strings}{Vector of strings to be wrapped}
+}
 \description{
 This function applies wrap_sentence to a vector of strings
 }

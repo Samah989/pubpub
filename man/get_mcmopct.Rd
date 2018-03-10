@@ -6,6 +6,21 @@
 \usage{
 get_mcmopct(item, value, digits = 2)
 }
+\arguments{
+\item{item}{Data vector from MCMO question}
+
+\item{value}{The particular value being matched}
+
+\item{digits}{The number of digits after the decimal for rounding the
+percent}
+}
 \description{
-Gets percentage of values in a multiple choice question with specific value
+Gets percentage of values in a MCMO question with specific value
+}
+\examples{
+# Gets the percent of people who answered "Computer science" as an option
+get_mcmopct(survey$Q3, "Computer science")
+# Rounds to the nearest integer
+get_mcmopct(survey$Q3, "Computer science", digits=0)
+
 }

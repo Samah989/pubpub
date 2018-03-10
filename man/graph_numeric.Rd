@@ -2,11 +2,31 @@
 % Please edit documentation in R/graph_numeric.R
 \name{graph_numeric}
 \alias{graph_numeric}
-\title{Graphs a numeric question}
+\title{Graphs a single numeric question}
 \usage{
 graph_numeric(item, unit, xmin = 0, xmax = max(item) + binwidth,
   binwidth = 1, fill = "darkmagenta")
 }
+\arguments{
+\item{item}{Data vector from numeric question}
+
+\item{unit}{String with the unit of the vector}
+
+\item{xmin}{The lower bound of the x axis}
+
+\item{xmax}{The upper bound of the x axis}
+
+\item{binwidth}{The width of histogram bins}
+
+\item{fill}{Specifies the color of the bars in the graph, see 
+<http://sape.inf.usi.ch/quick-reference/ggplot2/colour> for color
+references}
+}
 \description{
 This function creates a histogram for a numeric question
+}
+\examples{
+# Graphs a numeric variable
+graph_numeric(survey$age, "Years")
+
 }

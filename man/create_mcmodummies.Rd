@@ -7,7 +7,7 @@
 create_mcmodummies(item, ...)
 }
 \arguments{
-\item{item}{Data vector from MCMO question.}
+\item{item}{Data vector from MCMO question}
 
 \item{...}{Other options as in \code{get_mcmoopts()}}
 }

@@ -1,6 +1,28 @@
-#' Graphs a multiple choice, single option question
+#' Graphs a set of matrix questions
 #' 
-#' This function creates a horizontal bar graph for a multiple choice, single option question
+#' Graphs a horizontal stacked bar plot to display information from a series
+#' of questions that use the same options (e.g., a matrix)
+#' 
+#' @param items Data frame with only items to be graphed
+#' @param levels Vector with the order (low to high) of ordinal options, must
+#' be specified even if options are not ordinal
+#' @param labels Vector, in order of \code{items} columns, with names of items
+#' @param sort The order in which items should be displayed upon graphing. 
+#' Options include: \code{entry} - options are in the order of the 
+#' original columns, \code{alpha} - options are in alphabetical order, or one
+#' of the levels from \code{levels}, in which case the graph will be sorted
+#' descending order by that level
+#' @param palette Specifies the if the levels are ordered or not, if 
+#' "ordered," palette is "YlOrRd", if "unordered," palette is "Pastel1" - see
+#' <http://ggplot2.tidyverse.org/reference/scale_brewer.html> for more detail
+#' 
+#' @examples 
+#' # Graph agree/disagree questions
+#' graph_matrix(survey[get_matchvars(survey, "Opinion_")],
+#'                     levels=c("Disagree", "Neutral", "Agree"),
+#'                     labels=c("Apples", "Bananas", "Coconuts"),
+#'                     sort="Agree")
+#' 
 #' @export
 graph_matrix <- function(items, levels, labels, sort="entry", palette="ordered", ...) {
   levels <- rev(levels)

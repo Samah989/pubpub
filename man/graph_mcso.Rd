@@ -2,10 +2,29 @@
 % Please edit documentation in R/graph_mcso.R
 \name{graph_mcso}
 \alias{graph_mcso}
-\title{Graphs a multiple choice, single option question}
+\title{Graphs an MCSO question}
 \usage{
 graph_mcso(item, sort = "alpha", custom = NULL, fill = "dodgerblue4", ...)
 }
+\arguments{
+\item{item}{Data vector from MCSO question}
+
+\item{sort}{Specifies the order of the items in the graph. Options include:
+\code{descending} - in descending order by frequency, \code{ascending} - in
+ascending order by frequency, \code{alpha} - in alphabetical order,
+\code{custom} - in some custom order specified in the \code{custom} parameter}
+
+\item{custom}{If \code{sort="custom"}, the order of the options to be graphed}
+
+\item{fill}{Specifies the color of the bars in the graph, see 
+<http://sape.inf.usi.ch/quick-reference/ggplot2/colour> for color
+references}
+}
 \description{
-This function creates a horizontal bar graph for a multiple choice, single option question
+This function creates a horizontal bar graph for an MCSO option question
+}
+\examples{
+# Graphs an MCSO question
+graph_mcso(survey$Q4, sort="custom", custom=c("Grains", "Fruits", "Vegetables"))
+
 }

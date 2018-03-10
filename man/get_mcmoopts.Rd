@@ -2,10 +2,22 @@
 % Please edit documentation in R/get_mcmoopts.R
 \name{get_mcmoopts}
 \alias{get_mcmoopts}
-\title{Gets options for multiple choice, multiple option question}
+\title{Gets options for MCMO questions}
 \usage{
 get_mcmoopts(item, delim = ",", omit = c())
 }
+\arguments{
+\item{item}{Data vector from MCMO question}
+
+\item{delim}{Delimiter for multiple selections, default is a comma}
+
+\item{omit}{Vector of options which should be ignored
+
+# Get options from MCMO question "Q3" in "survey" data.frame object
+get_mcmoopts(survey$Q3)
+# Omit "Computer science" option
+get_mcmoopts(survey$Q3, omit="Computer science")}
+}
 \description{
-This function gets all options for a multiple choice, multiple option question
+Parses data from an MCMO question and returns a vector of possible options
 }

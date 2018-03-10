@@ -2,11 +2,33 @@
 % Please edit documentation in R/graph_mcmo.R
 \name{graph_mcmo}
 \alias{graph_mcmo}
-\title{Graphs a multiple choice, multiple option question}
+\title{Graphs an MCMO question}
 \usage{
 graph_mcmo(item, sort = "alpha", custom = NULL, stat = "count",
   fill = "seagreen", ...)
 }
+\arguments{
+\item{item}{Data vector from MCMO question}
+
+\item{sort}{Specifies the order of the items in the graph. Options include:
+\code{descending} - in descending order by frequency, \code{ascending} - in
+ascending order by frequency, \code{alpha} - in alphabetical order,
+\code{custom} - in some custom order specified in the \code{custom} parameter}
+
+\item{custom}{If \code{sort="custom"}, the order of the options to be graphed}
+
+\item{stat}{The statistic for the frequency, either \code{count} or
+\code{percent}}
+
+\item{fill}{Specifies the color of the bars in the graph, see 
+<http://sape.inf.usi.ch/quick-reference/ggplot2/colour> for color
+references}
+}
 \description{
-This function creates a horizontal bar graph for a multiple choice, multiple option question
+This function creates a horizontal bar graph for an MCMO question
+}
+\examples{
+# Graphs an MCMO question
+graph_mcmo(survey$Q3, sort="custom", custom=c("Grains", "Fruits", "Vegetables"))
+
 }

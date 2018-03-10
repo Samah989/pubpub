@@ -4,7 +4,7 @@
 #' question. Suggested data check: Run \code{get_mcmoopts()} first to see what
 #' survey choices are being found.
 #' 
-#' @param item Data vector from MCMO question.
+#' @param item Data vector from MCMO question
 #' @param ... Other options as in \code{get_mcmoopts()}
 #' 
 #' @examples 
