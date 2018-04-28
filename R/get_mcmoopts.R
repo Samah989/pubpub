@@ -19,7 +19,7 @@ get_mcmoopts <- function(item, delim=",", omit=c(), escape=T) {
   omit <- c("", omit)
   l <- setdiff(l, omit)
   if(escape) {
-    l <- escape(l)
+    l <- escape_chars(l)
   }
   return(l)
 }
