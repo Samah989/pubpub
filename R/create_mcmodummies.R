@@ -20,8 +20,7 @@ create_mcmodummies <- function(item, ...) {
   
   # Creates dummies data frame
   dummies <- c(rep(NA, length(item)))
-  for(i in 1:length(l)) {
-    pattern <- gsub("\\(", "\\\\(", l[i])
+  for(pattern in l) {
     marker <- ifelse(grepl(pattern, item), 1, 0)
     marker[item==""] <- NA
     dummies <- cbind(dummies, marker)

@@ -33,6 +33,9 @@ graph_mcmo <- function(item, sort="alpha", custom=NULL, stat="count", fill="seag
   names(allstats) <- c("item", "stat")
   allstats$stat <- as.numeric(as.character(allstats$stat))
   rownames(allstats) <- NULL
+  allstats$item <- gsub("\\\\\\\\", "DOUBLEBACKDOUBLEBACK", allstats$item)
+  allstats$item <- gsub("\\\\", "", allstats$item)
+  allstats$item <- gsub("DOUBLEBACKDOUBLEBACK", "\\\\", allstats$item)
   if(sort=="descending") {
     allstats <- allstats[order(allstats$stat),]
     sorder <- allstats$item

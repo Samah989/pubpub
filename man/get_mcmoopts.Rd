@@ -4,14 +4,16 @@
 \alias{get_mcmoopts}
 \title{Gets options for MCMO questions}
 \usage{
-get_mcmoopts(item, delim = ",", omit = c())
+get_mcmoopts(item, delim = ",", omit = c(), escape = T)
 }
 \arguments{
 \item{item}{Data vector from MCMO question}
 
 \item{delim}{Delimiter for multiple selections, default is a comma}
 
-\item{omit}{Vector of options which should be ignored
+\item{omit}{Vector of options which should be ignored}
+
+\item{escape}{Escapes R special characters, default is TRUE
 
 # Get options from MCMO question "Q3" in "survey" data.frame object
 get_mcmoopts(survey$Q3)
