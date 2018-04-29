@@ -32,7 +32,6 @@
 graph_linkednum <- function(items, labels, sort="entry", totalcheck=NA, 
                             central="mean", spread="sd1", fill="tomato1") {
   orig <- nrow(items)
-  totalcheck <- 100
   if(!is.na(totalcheck)) {
     items$check <- rowSums(items)
     items <- items[!is.na(items$check),]
