@@ -4,7 +4,8 @@
 \alias{get_mcmoopts}
 \title{Gets options for MCMO questions}
 \usage{
-get_mcmoopts(item, delim = ",", omit = c(), opts = c(), escape = T)
+get_mcmoopts(item, delim = ",", omit = c(), custom.opts = c(),
+  escape = T)
 }
 \arguments{
 \item{item}{Data vector from MCMO question}
