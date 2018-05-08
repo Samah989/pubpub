@@ -13,13 +13,18 @@
 #' get_mcmoopts(survey$Q3, omit="Computer science")
 #' 
 #' @export
-get_mcmoopts <- function(item, delim=",", omit=c(), escape=T) {
-  l <- levels(factor(item))
-  l <- unique(unlist(strsplit(l, delim)))
-  omit <- c("", omit)
-  l <- setdiff(l, omit)
-  if(escape) {
-    l <- escape_chars(l)
+get_mcmoopts <- function(item, delim=",", omit=c(), opts=c(), escape=T) {
+  if(length(opts) == 0) {
+    return(opts)
+  } else {
+    l <- levels(factor(item))
+    l <- unique(unlist(strsplit(l, delim)))
+    omit <- c("", omit)
+    l <- setdiff(l, omit)
+    if(escape) {
+      l <- escape_chars(l)
+    }
+    return(l)
   }
-  return(l)
+  
 }
