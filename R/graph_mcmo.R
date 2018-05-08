@@ -21,7 +21,7 @@
 #' @export
 graph_mcmo <- function(item, sort="alpha", custom=NULL, stat="count", fill="seagreen", ...) {
   dummies <- create_mcmodummies(item, ...)
-  names <- wrap_strings(names(dummies), ...)
+  names <- wrap_strings(names(dummies))
   if(stat=="count") {
     stats <- colSums(dummies, na.rm=T)
   } else if(stat=="percent") {
