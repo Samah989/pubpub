@@ -15,6 +15,10 @@
 #' @export
 get_mcmoopts <- function(item, delim=",", omit=c(), opts=c(), escape=T) {
   if(length(opts) == 0) {
+    l <- opts
+    if(escape) {
+      l <- escape_chars(l)
+    }
     return(opts)
   } else {
     l <- levels(factor(item))
