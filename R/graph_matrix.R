@@ -12,6 +12,8 @@
 #' original columns, \code{alpha} - options are in alphabetical order, or one
 #' of the levels from \code{levels}, in which case the graph will be sorted
 #' descending order by that level
+#' @param mcmo Indicator for whether respondents could choose more than one
+#' option, default is FALSE
 #' @param palette Specifies the if the levels are ordered or not, if 
 #' "ordered," palette is "YlOrRd", if "unordered," palette is "Pastel1" - see
 #' <http://ggplot2.tidyverse.org/reference/scale_brewer.html> for more detail
@@ -24,13 +26,22 @@
 #'                     sort="Agree")
 #' 
 #' @export
-graph_matrix <- function(items, levels, labels, sort="entry", palette="ordered", ...) {
+graph_matrix <- function(items, levels, labels, sort="entry", 
+                         mcmo=F, palette="ordered", ...) {
   levels <- rev(levels)
-  items <- lapply(items, function(x) factor(x, levels=levels))
   sorted <- data.frame(matrix(NA, nrow=1, ncol=length(levels)))
   names(sorted) <- levels
-  for(i in 1:length(items)) {
-    sorted <- rbind(sorted, 100*prop.table(table(items[i])))
+  if(!mcmo) {
+    items <- lapply(items, function(x) factor(x, levels=levels))
+    for(i in 1:length(items)) {
+      sorted <- rbind(sorted, 100*prop.table(table(items[i])))
+    }
+  } else {
+    for(i in 1:length(items)) {
+      sorted <- rbind(sorted, lapply(create_mcmodummies(items[,i],
+                                                        custom.opts=levels),
+                                     function(x) sum(x)))
+    }
   }
   sorted <- sorted[-1,]
   sorted <- cbind(labels, sorted)
@@ -56,10 +67,15 @@ graph_matrix <- function(items, levels, labels, sort="entry", palette="ordered",
   } else {
     stop("palette parameter must equal \"ordered\" or \"unordered\"")
   }
+  if(!mcmo) {
+    ylabel <- "Percent"
+  } else {
+    ylabel <- "Count"
+  }
   return(ggplot(coldata, aes(x=factor(Item), y=value, fill=factor(variable))) + 
            geom_bar(stat="identity") +
            xlab("") +
-           ylab("Percent") +
+           ylab(ylabel) +
            coord_flip() + 
            scale_fill_brewer(name="Response", palette=palette) +
            theme(panel.background=element_blank(),

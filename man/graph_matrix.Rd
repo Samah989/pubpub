@@ -4,8 +4,8 @@
 \alias{graph_matrix}
 \title{Graphs a set of matrix questions}
 \usage{
-graph_matrix(items, levels, labels, sort = "entry", palette = "ordered",
-  ...)
+graph_matrix(items, levels, labels, sort = "entry", mcmo = F,
+  palette = "ordered", ...)
 }
 \arguments{
 \item{items}{Data frame with only items to be graphed}
@@ -20,6 +20,9 @@ Options include: \code{entry} - options are in the order of the
 original columns, \code{alpha} - options are in alphabetical order, or one
 of the levels from \code{levels}, in which case the graph will be sorted
 descending order by that level}
+
+\item{mcmo}{Indicator for whether respondents could choose more than one
+option, default is FALSE}
 
 \item{palette}{Specifies the if the levels are ordered or not, if 
 "ordered," palette is "YlOrRd", if "unordered," palette is "Pastel1" - see
