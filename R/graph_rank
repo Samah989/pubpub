@@ -1,0 +1,22 @@
+# graphs on rank questions 
+# this function create a dodge bar graph for rank questions 
+# this function requires installing the following packages
+# ggplot2
+# rehshape 
+# example 
+# graph a rank data question 
+# graph(survey$Q4)
+
+graph_rank <- function(item) {
+  item <- item[complete.cases(item),]
+  item <- melt(item)
+  sorted <-data.frame( table(item))
+
+  return(ggplot(sorted, aes(x=variable, y=Freq,fill=value,label=Freq)) +
+           geom_bar(stat="identity") +
+           xlab("") +
+           ylab("Count") +
+           theme(panel.background=element_blank(),
+                 legend.title = element_blank(),
+                 axis.line=element_line(colour="black"))+geom_text(size = 5, position = position_stack(vjust = 0.5)))
+}
