@@ -4,7 +4,7 @@
 \alias{get_mcmoopts}
 \title{Gets options for MCMO questions}
 \usage{
-get_mcmoopts(item, delim = ",", omit = c(), custom.opts = c(),
+get_mcmoopts(item, delim = ",", omit = c(), custom.respopts = c(),
   escape = TRUE)
 }
 \arguments{

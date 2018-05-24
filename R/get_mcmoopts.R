@@ -13,13 +13,13 @@
 #' get_mcmoopts(survey$Q3, omit="Computer science")
 #' 
 #' @export
-get_mcmoopts <- function(item, delim=",", omit=c(), custom.opts=c(), escape=TRUE) {
+get_mcmoopts <- function(item, delim=",", omit=c(), custom.respopts=c(), escape=TRUE) {
   
   # If custom options are given
-  if(length(custom.opts) > 0) {
+  if(length(custom.respopts) > 0) {
     
     # Escape if option is on
-    l <- custom.opts
+    l <- custom.respopts
     if(escape) {
       l <- escape_chars(l)
     }
