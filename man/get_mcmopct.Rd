@@ -12,10 +12,11 @@ get_mcmopct(item, value, digits = 2)
 \item{value}{The particular value being matched}
 
 \item{digits}{The number of digits after the decimal for rounding the
-percent}
+percent, default is 2}
 }
 \description{
-Gets percentage of values in a MCMO question with specific value
+Gets percentage of values in a MCMO question with specific value. It is
+more often used for data checking or reporting single numbers in a document.
 }
 \examples{
 # Gets the percent of people who answered "Computer science" as an option

@@ -9,15 +9,16 @@ graph_mcso(item, sort = "alpha", custom = NULL, fill = "dodgerblue4", ...)
 \arguments{
 \item{item}{Data vector from MCSO question}
 
-\item{sort}{Specifies the order of the items in the graph. Options include:
-\code{descending} - in descending order by frequency, \code{ascending} - in
-ascending order by frequency, \code{alpha} - in alphabetical order,
-\code{custom} - in some custom order specified in the \code{custom} parameter}
+\item{sort}{Specifies the order of the items in the graph, default is "alpha."
+Options include: \code{descending} - in descending order by frequency, 
+\code{ascending} - in ascending order by frequency, \code{alpha} - in 
+alphabetical order, \code{custom} - in some custom order specified in the 
+\code{custom} parameter}
 
 \item{custom}{If \code{sort="custom"}, the order of the options to be graphed}
 
-\item{fill}{Specifies the color of the bars in the graph, see 
-<http://sape.inf.usi.ch/quick-reference/ggplot2/colour> for color
+\item{fill}{Specifies the color of the bars in the graph, default is "dodger
+blue 4." See <http://sape.inf.usi.ch/quick-reference/ggplot2/colour> for color
 references}
 }
 \description{

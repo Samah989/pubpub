@@ -5,7 +5,7 @@
 \title{Gets options for MCMO questions}
 \usage{
 get_mcmoopts(item, delim = ",", omit = c(), custom.opts = c(),
-  escape = T)
+  escape = TRUE)
 }
 \arguments{
 \item{item}{Data vector from MCMO question}
@@ -22,5 +22,5 @@ get_mcmoopts(survey$Q3)
 get_mcmoopts(survey$Q3, omit="Computer science")}
 }
 \description{
-Parses data from an MCMO question and returns a vector of possible options
+Parses data from an MCMO question and returns a vector of possible options.
 }

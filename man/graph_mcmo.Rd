@@ -18,11 +18,11 @@ ascending order by frequency, \code{alpha} - in alphabetical order,
 \item{custom}{If \code{sort="custom"}, the order of the options to be graphed}
 
 \item{stat}{The statistic for the frequency, either \code{count} or
-\code{percent}}
+\code{percent}, default is "count"}
 
-\item{fill}{Specifies the color of the bars in the graph, see 
-<http://sape.inf.usi.ch/quick-reference/ggplot2/colour> for color
-references}
+\item{fill}{Specifies the color of the bars in the graph, default is 
+"seagreen." See <http://sape.inf.usi.ch/quick-reference/ggplot2/colour> for 
+color references}
 }
 \description{
 This function creates a horizontal bar graph for an MCMO question

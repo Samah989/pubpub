@@ -30,7 +30,7 @@ option, default is FALSE}
 }
 \description{
 Graphs a horizontal stacked bar plot to display information from a series
-of questions that use the same options (e.g., a matrix)
+of questions that use the same options (e.g., a matrix).
 }
 \examples{
 # Graph agree/disagree questions

@@ -15,7 +15,8 @@ get_mcsopct(item, value, digits = 2)
 percent}
 }
 \description{
-Gets percentage of values in a MCSO question with specific value
+Gets percentage of values in a MCSO question with specific value. It is
+more often used for data checking or reporting single numbers in a document.
 }
 \examples{
 # Gets the percent of people who answered "Male" as an option

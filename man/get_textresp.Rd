@@ -9,7 +9,8 @@ get_textresp(item, rm.nl = F, empty = NA)
 \arguments{
 \item{item}{Data vector from open responses question}
 
-\item{rm.nl}{Option for stripping responses of newline characters}
+\item{rm.nl}{Option for stripping responses of newline characters,
+default is FALSE}
 
 \item{empty}{Specifies what an empty response looks like}
 }

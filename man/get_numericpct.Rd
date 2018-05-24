@@ -15,7 +15,7 @@ get_numericpct(item, min, max = min, digits = 2)
 the minimum if not included}
 
 \item{digits}{The number of digits after the decimal for rounding the
-percent}
+percent, default is 2}
 }
 \description{
 This function gets the percent of values in a range, inclusive. Defaults to

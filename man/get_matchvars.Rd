@@ -18,7 +18,7 @@ term, using regular expressions.
 \examples{
 # Get all variable names including "Q6_"
 get_matchvars(survey, "Q6_")
-# Data frame with only Q6 variables
-survey[get_matchvars(survey, "Q6_")]
+# Create data frame with only Q6 variables
+new_data <- survey[get_matchvars(survey, "Q6_")]
 
 }

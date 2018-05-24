@@ -2,10 +2,10 @@
 % Please edit documentation in R/escape_chars.R
 \name{escape_chars}
 \alias{escape_chars}
-\title{Escape}
+\title{Escape special characters}
 \usage{
 escape_chars(string)
 }
 \description{
-Escapes special characters
+Escapes special characters using R-specific escaping syntax ("\\").
 }

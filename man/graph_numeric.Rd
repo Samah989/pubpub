@@ -12,15 +12,16 @@ graph_numeric(item, unit, xmin = 0, xmax = max(item) + binwidth,
 
 \item{unit}{String with the unit of the vector}
 
-\item{xmin}{The lower bound of the x axis}
+\item{xmin}{The lower bound of the x axis, default is 0}
 
-\item{xmax}{The upper bound of the x axis}
+\item{xmax}{The upper bound of the x axis, default is the maximum data 
+value, plus the binwidth}
 
-\item{binwidth}{The width of histogram bins}
+\item{binwidth}{The width of histogram bins, default is 1}
 
-\item{fill}{Specifies the color of the bars in the graph, see 
-<http://sape.inf.usi.ch/quick-reference/ggplot2/colour> for color
-references}
+\item{fill}{Specifies the color of the bars in the graph, default is
+"dark magenta." See <http://sape.inf.usi.ch/quick-reference/ggplot2/colour>
+for color references}
 }
 \description{
 This function creates a histogram for a numeric question

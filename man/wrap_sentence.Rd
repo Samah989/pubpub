@@ -16,6 +16,6 @@ This function takes a space-delimited sentence and inserts newlines to wrap the 
 }
 \examples{
 # Wraps a long string
-wrap_sentence("My bonnie lies over the ocean")
+wrap_sentence("My bonnie lies over the ocean", width=8)
 
 }
