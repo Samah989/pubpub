@@ -77,7 +77,7 @@ graph_linkednum <- function(items, labels, sort="entry", totalcheck=NA,
     sumtable$item <- factor(sumtable$item, ordered=T, levels=sumtable$item[order(sumtable$central)])
   }
   ggplot(sumtable, aes(x=item, y=central)) + 
-    geom_bar(stat="identity", fill="tomato1") + 
+    geom_bar(stat="identity", fill=fill) + 
     geom_errorbar(aes(ymin=lo, ymax=hi), width=.2) +
     xlab("") +
     ylab(paste(type, "Percent")) +
