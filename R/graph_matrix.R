@@ -86,7 +86,7 @@ graph_matrix <- function(items, respopts, labels, sort="entry",
   coldata$Item <- factor(coldata$Item, levels=wrap_strings(sorder), ordered=T)
   
   # Specify color based on input
-  if(!palette) {
+  if(is.null(palette)) {
     if(ordered) {
       palette <- "YlOrRd"
     } else {
