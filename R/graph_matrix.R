@@ -14,8 +14,11 @@
 #' descending order by that level
 #' @param mcmo Indicator for whether respondents could choose more than one
 #' option, default is FALSE
-#' @param palette Specifies the if the response options are ordered or not, if 
-#' "ordered," palette is "YlOrRd", if "unordered," palette is "Pastel1" - see
+#' @param ordered Specifies if the response options are ordered or not, if 
+#' ordered, palette is "YlOrRd", if unordered, palette is "Pastel1", can be 
+#' overridden with \code{palette}
+#' @param palette Sets custom palette for graphing, overrides defaults from 
+#' \code{ordered} option, see
 #' <http://ggplot2.tidyverse.org/reference/scale_brewer.html> for more detail
 #' 
 #' @examples 
@@ -27,7 +30,7 @@
 #' 
 #' @export
 graph_matrix <- function(items, respopts, labels, sort="entry", 
-                         mcmo=F, palette="ordered", ...) {
+                         mcmo=F, ordered=T, palette=NULL, ...) {
   # Reverses the order of the respopts for horizontal printing
   respopts <- rev(respopts)
   
@@ -83,12 +86,12 @@ graph_matrix <- function(items, respopts, labels, sort="entry",
   coldata$Item <- factor(coldata$Item, levels=wrap_strings(sorder), ordered=T)
   
   # Specify color based on input
-  if(palette=="ordered") {
-    palette <- "YlOrRd"
-  } else if(palette=="unordered") {
-    palette <- "Pastel1"
-  } else {
-    stop("palette parameter must equal \"ordered\" or \"unordered\"")
+  if(palette==NULL) {
+    if(ordered) {
+      palette <- "YlOrRd"
+    } else {
+      palette <- "Pastel1"
+    }
   }
   
   # Specify y axis label based on input

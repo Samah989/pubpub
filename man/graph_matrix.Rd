@@ -5,7 +5,7 @@
 \title{Graphs a set of matrix questions}
 \usage{
 graph_matrix(items, respopts, labels, sort = "entry", mcmo = F,
-  palette = "ordered", ...)
+  ordered = T, palette = NULL, ...)
 }
 \arguments{
 \item{items}{Data frame with only items to be graphed}
@@ -24,8 +24,12 @@ descending order by that level}
 \item{mcmo}{Indicator for whether respondents could choose more than one
 option, default is FALSE}
 
-\item{palette}{Specifies the if the response options are ordered or not, if 
-"ordered," palette is "YlOrRd", if "unordered," palette is "Pastel1" - see
+\item{ordered}{Specifies if the response options are ordered or not, if 
+ordered, palette is "YlOrRd", if unordered, palette is "Pastel1", can be 
+overridden with \code{palette}}
+
+\item{palette}{Sets custom palette for graphing, overrides defaults from 
+\code{ordered} option, see
 <http://ggplot2.tidyverse.org/reference/scale_brewer.html> for more detail}
 }
 \description{
