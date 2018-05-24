@@ -8,7 +8,7 @@
 #' @param max The maximum value (inclusive) from the search range, defaults to
 #' the minimum if not included
 #' @param digits The number of digits after the decimal for rounding the
-#' percent
+#' percent, default is 2
 #' 
 #' @examples
 #' # Gets the percent of people with exactly three dogs
@@ -18,6 +18,10 @@
 #' 
 #' @export
 get_numericpct <- function(item, min, max=min, digits=2) {
+  
+  # Removes missing values
   item <- item[!is.na(item)]
+  
+  # Returns percentage
   return(round(100*(sum(item>=min&item<=max)/length(item)), digits=digits))
 }

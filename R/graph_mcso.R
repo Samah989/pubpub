@@ -3,13 +3,14 @@
 #' This function creates a horizontal bar graph for an MCSO option question
 #' 
 #' @param item Data vector from MCSO question
-#' @param sort Specifies the order of the items in the graph. Options include:
-#' \code{descending} - in descending order by frequency, \code{ascending} - in
-#' ascending order by frequency, \code{alpha} - in alphabetical order,
-#' \code{custom} - in some custom order specified in the \code{custom} parameter
+#' @param sort Specifies the order of the items in the graph, default is "alpha."
+#' Options include: \code{descending} - in descending order by frequency, 
+#' \code{ascending} - in ascending order by frequency, \code{alpha} - in 
+#' alphabetical order, \code{custom} - in some custom order specified in the 
+#' \code{custom} parameter
 #' @param custom If \code{sort="custom"}, the order of the options to be graphed
-#' @param fill Specifies the color of the bars in the graph, see 
-#' <http://sape.inf.usi.ch/quick-reference/ggplot2/colour> for color
+#' @param fill Specifies the color of the bars in the graph, default is "dodger
+#' blue 4." See <http://sape.inf.usi.ch/quick-reference/ggplot2/colour> for color
 #' references
 #' 
 #' @examples 
@@ -18,7 +19,10 @@
 #' 
 #' @export
 graph_mcso <- function(item, sort="alpha", custom=NULL, fill="dodgerblue4", ...) {
+  # Creates data frame from frequency table of item
   sorted <- data.frame(table(item))
+  
+  # Create order for items based on input
   sorted$item <- as.character(sorted$item)
   if(sort=="descending") {
     sorted <- sorted[order(sorted$Freq),]
@@ -35,9 +39,15 @@ graph_mcso <- function(item, sort="alpha", custom=NULL, fill="dodgerblue4", ...)
   } else {
     stop("sort parameter must equal \"alpha\", \"ascending\", \"descending\", or \"custom\"")
   }
+  
+  # Wrap strings in both table and item order
   sorted$item <- wrap_strings(sorted$item)
   sorder <- wrap_strings(sorder)
+  
+  # Sort table based on sorted order
   sorted$item <- factor(sorted$item, ordered=T, levels=sorder)
+  
+  # Return graph
   return(ggplot(sorted, aes(x=item, y=Freq)) +
            geom_bar(stat="identity", fill=fill) +
            xlab("") +

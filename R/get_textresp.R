@@ -4,7 +4,8 @@
 #' open responses, text-based question.
 #' 
 #' @param item Data vector from open responses question
-#' @param rm.nl Option for stripping responses of newline characters
+#' @param rm.nl Option for stripping responses of newline characters,
+#' default is FALSE
 #' @param empty Specifies what an empty response looks like
 #' 
 #' @examples
@@ -13,9 +14,15 @@
 #' 
 #' @export
 get_textresp <- function(item, rm.nl=F, empty=NA) {
+  
+  # Removes all empty responses
   text <- as.character(item[item!=empty])
+  
+  # Replaces newline characters with single spaces
   if(rm.nl==T) {
     text <- gsub("\n", " ", text)
   }
+  
+  # Returns a list of text options
   return(text)
 }

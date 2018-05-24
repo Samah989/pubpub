@@ -4,12 +4,13 @@
 #' 
 #' @param item Data vector from numeric question
 #' @param unit String with the unit of the vector
-#' @param xmin The lower bound of the x axis
-#' @param xmax The upper bound of the x axis
-#' @param binwidth The width of histogram bins
-#' @param fill Specifies the color of the bars in the graph, see 
-#' <http://sape.inf.usi.ch/quick-reference/ggplot2/colour> for color
-#' references
+#' @param xmin The lower bound of the x axis, default is 0
+#' @param xmax The upper bound of the x axis, default is the maximum data 
+#' value, plus the binwidth
+#' @param binwidth The width of histogram bins, default is 1
+#' @param fill Specifies the color of the bars in the graph, default is
+#' "dark magenta." See <http://sape.inf.usi.ch/quick-reference/ggplot2/colour>
+#' for color references
 #' 
 #' @examples 
 #' # Graphs a numeric variable
@@ -17,9 +18,15 @@
 #' 
 #' @export
 graph_numeric <- function(item, unit, xmin=0, xmax=max(item)+binwidth, binwidth=1, fill="darkmagenta") {
+  
+  # Creates data frame from from item
   data <- data.frame(item)
   names(data) <- "Item"
+  
+  # Shift minimum to the left
   xmin <- xmin-1
+  
+  # Return graph
   return(ggplot(data) +
            geom_histogram(aes(x=Item), binwidth=binwidth, fill=fill) +
            xlab(unit) +

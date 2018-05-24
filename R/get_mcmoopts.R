@@ -1,6 +1,6 @@
 #' Gets options for MCMO questions
 #' 
-#' Parses data from an MCMO question and returns a vector of possible options
+#' Parses data from an MCMO question and returns a vector of possible options.
 #' 
 #' @param item Data vector from MCMO question
 #' @param delim Delimiter for multiple selections, default is a comma
@@ -13,21 +13,38 @@
 #' get_mcmoopts(survey$Q3, omit="Computer science")
 #' 
 #' @export
-get_mcmoopts <- function(item, delim=",", omit=c(), custom.opts=c(), escape=T) {
+get_mcmoopts <- function(item, delim=",", omit=c(), custom.opts=c(), escape=TRUE) {
+  
+  # If custom options are given
   if(length(custom.opts) > 0) {
+    
+    # Escape if option is on
     l <- custom.opts
     if(escape) {
       l <- escape_chars(l)
     }
+    
+    # Return list 
     return(l)
   } else {
+    
+    # Gets all of the unique combinations of options
     l <- levels(factor(item))
+    
+    # Splits all of the combinations by delimiter
     l <- unique(unlist(strsplit(l, delim)))
-    omit <- c("", omit)
-    l <- setdiff(l, omit)
+    
+    # Remove items in omit list
+    if(length(omit)>0) {
+      l <- setdiff(l, omit) 
+    }
+    
+    # Escape if option is TRUE
     if(escape) {
       l <- escape_chars(l)
     }
+    
+    # Return list
     return(l)
   }
 }

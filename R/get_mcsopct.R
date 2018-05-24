@@ -1,6 +1,7 @@
 #' Gets percentage from MCSO question
 #' 
-#' Gets percentage of values in a MCSO question with specific value
+#' Gets percentage of values in a MCSO question with specific value. It is
+#' more often used for data checking or reporting single numbers in a document.
 #' 
 #' @param item Data vector from MCSO question
 #' @param value The particular value being matched
@@ -15,5 +16,7 @@
 #' 
 #' @export
 get_mcsopct <- function(item, value, digits=2) {
+  
+  # Returns percentage
   return(as.numeric(round(digits=digits, 100*prop.table(table(item))[value])))
 }

@@ -9,10 +9,12 @@
 #' @examples
 #' # Get all variable names including "Q6_"
 #' get_matchvars(survey, "Q6_")
-#' # Data frame with only Q6 variables
-#' survey[get_matchvars(survey, "Q6_")]
+#' # Create data frame with only Q6 variables
+#' new_data <- survey[get_matchvars(survey, "Q6_")]
 #' 
 #' @export
 get_matchvars <- function(d, pattern) {
+  
+  # Return list of matching variables
   return(names(d)[grepl(pattern, names(d))])
 }
