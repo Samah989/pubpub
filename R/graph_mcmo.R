@@ -22,7 +22,7 @@
 graph_mcmo <- function(item, sort="alpha", custom=NULL, stat="count", fill="seagreen", ...) {
   
   # Get dummy variable matrix
-  dummies <- create_mcmodummies(item, ...)
+  dummies <- get_mcmodummies(item, ...)
   
   # Wrap dummy variable strings
   names <- wrap_strings(names(dummies))

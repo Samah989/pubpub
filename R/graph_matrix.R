@@ -49,8 +49,8 @@ graph_matrix <- function(items, levels, labels, sort="entry",
     
     # Add percentages from summed dummy matrices for each item
     for(i in 1:length(items)) {
-      sorted <- rbind(sorted, lapply(create_mcmodummies(items[,i],
-                                                        custom.opts=levels),
+      sorted <- rbind(sorted, lapply(get_mcmodummies(items[,i],
+                                                     custom.opts=levels),
                                      function(x) sum(x)))
     }
   }
