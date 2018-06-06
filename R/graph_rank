@@ -5,7 +5,20 @@
 # rehshape 
 # example 
 # graph a rank data question 
-# graph(survey$Q4)
+      graph_rank(item = rank_data)
+# Add label to survey questions
+      graph_rank(item = rank_data,
+         label = c("Question 1", "Question 2", "Question 3"))
+
+# Sort the graph in specific order
+graph_rank(rank_data, positions = "descending")
+graph_rank(rank_data, positions = "ascending")
+
+graph_rank(rank_data, positions = c("Q2-2" , "Q2-1" , "Q2-3"))
+
+graph_rank(rank_data, sort = "ascending")
+graph_rank(rank_data, sort = "descending")
+ 
 
 graph_rank <- function(item) {
   item <- item[complete.cases(item),]
